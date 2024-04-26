@@ -18,20 +18,5 @@
 # output_dir = 'D:\\Data\\2024_04_18\\Processed FID'
 # utils.process_csv_files(csv_dir, output_dir)
 
-import pandas as pd
-import matplotlib.pyplot as plt
 
-data = pd.read_csv('./data/1.csv', header=None, sep=',')
-
-real = data[1]
-imag = data[2]
-x = data[0]
-
-plt.plot(x, real, label='Real Part')
-plt.plot(x, imag, label='Imaginary Part')
-plt.xlabel('Index')
-plt.ylabel('Amplitude')
-plt.legend()
-plt.grid(True)
-plt.show()
 

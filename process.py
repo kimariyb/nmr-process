@@ -54,7 +54,7 @@ def read_fid(fid_path: str, sw: float = 20833.0) -> pd.DataFrame:
     Returns
     -------
         pd.DataFrame
-            Data in DataFrame format
+            FID Data in DataFrame format
     """
     
     # 如果没有提供 FID 文件路径，或者 FID 文件不存在，抛出异常
@@ -97,5 +97,8 @@ def read_fid(fid_path: str, sw: float = 20833.0) -> pd.DataFrame:
     return data
 
 
-raw_data = read_fid('./data/1.fid')
+
+
+
+
 

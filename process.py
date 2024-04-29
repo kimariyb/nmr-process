@@ -97,8 +97,32 @@ def read_fid(fid_path: str, sw: float = 20833.0) -> pd.DataFrame:
     return data
 
 
+def export_fid(data: pd.DataFrame, fid_path: str, freq: float = 56.17410278):
+    """
+    Export FID data in DataFrame format to a binary file for SpinFlow.
+    
+    Example
+    ----------
+    >>> data = read_fid('./data/1.fid')     
+    >>> export_fid(data, './data/1.txt')
+    
+    Parameters
+    ----------
+        data : pd.DataFrame
+            FID Data in DataFrame format
+        fid_path : str
+            Path to the output FID file
+    """
 
+    # 如果存在同名文件，则删除文件
+    if os.path.exists(fid_path):
+        os.remove(fid_path)
+        
+    # 文件头
+    with open(fid_path, 'w') as f:
+        f.write(f'Frequency\t{freq}\n')
+        f.write('Nucleus\tUnknown\n')
 
-
-
-
+    # 导出数据到文件
+    data.to_csv(fid_path, sep='\t', header=None, index=False, mode='a')
+    

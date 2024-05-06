@@ -1,5 +1,5 @@
-from process import *
-from utils import *
+from spinflow.process import *
+from utils.file import *
 
 import glob
 
